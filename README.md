@@ -11,6 +11,14 @@ Ipms provides the following basic commands. A command consist of a path fragment
 
 A request `/rotate?degrees=90` can be seen as a function call `rotate(<image>, degrees=90)`.
 
+#### Blur
+
+* Blur the image with sigma=20 and blur=50
+
+```bash
+http localhost:8000/v1/imagemagick/blur sigma==20 blur==50 < source.jpg > target.png
+```
+
 #### Format
 
 * Format set to PNG

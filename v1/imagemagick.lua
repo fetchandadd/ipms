@@ -1,3 +1,10 @@
+function blur(img)
+    local sigma = assert(ngx.var.arg_sigma, 'sigma: missing')
+    local radius = assert(ngx.var.arg_radius, 'radius: missing')
+    img:blur(tonumber(sigma), tonumber(radius))
+    return img
+end
+
 function format(img)
     local format = assert(ngx.var.arg_format, 'format: missing')
     img:set_format(format)
@@ -24,7 +31,6 @@ function thumb(img)
     img:thumb(size)
     return img
 end
-
 
 function main()
     -- explicitly read the req body as pointed out in manual: https://github.com/openresty/lua-nginx-module#ngxreqget_body_data
