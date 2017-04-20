@@ -13,10 +13,10 @@ A request `/rotate?degrees=90` can be seen as a function call `rotate(<image>, d
 
 #### Blur
 
-* Blur the image with sigma=20 and blur=50
+* Blur the image with sigma=20 and radius=50
 
 ```bash
-http localhost:8000/v1/imagemagick/blur sigma==20 blur==50 < source.jpg > target.png
+http localhost:8000/v1/imagemagick/blur sigma==20 radius==50 < source.jpg > target.png
 ```
 
 #### Format
