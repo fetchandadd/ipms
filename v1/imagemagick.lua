@@ -1,26 +1,30 @@
+function format(img)
+    local format = assert(ngx.var.arg_format, 'format: missing')
+    img:set_format(format)
+    return img
+end
+
 function quality(img)
     local quality = assert(ngx.var.arg_quality, 'quality: missing')
+    quality = assert(string.match(quality, '[1-9]%d*'), 'quality: doesn\'t match pattern')
     img:set_quality(tonumber(quality))
     return img
 end
 
 function rotate(img)
     local degrees = assert(ngx.var.arg_degrees, 'degrees: missing')
+    degrees = assert(string.match(degrees, '[1-9]%d*'), 'degrees: doesn\'t match pattern')
     img:rotate(tonumber(degrees))
     return img
 end
 
 function thumb(img)
     local size = assert(ngx.var.arg_size, 'size: missing')
-    img:thumb(ngx.unescape_uri(size))
+    size = ngx.unescape_uri(size)
+    img:thumb(size)
     return img
 end
 
-function format(img)
-    local format = assert(ngx.var.arg_format, 'format: missing')
-    img:set_format(format)
-    return img
-end
 
 function main()
     -- explicitly read the req body as pointed out in manual: https://github.com/openresty/lua-nginx-module#ngxreqget_body_data
