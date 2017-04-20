@@ -45,7 +45,7 @@ http localhost:8000/v1/imagemagick/thumb size==500x300+10+20 < source.jpg > targ
 
 ### Combine multiple commands
 
-Commands will be executed from left to right. E.g. a request `/thumb/rotate?size==500x300+10+20&degrees=90` translates to `rotate(thumb(<image>, size=500x300+10+20), degrees=90)`.
+Commands will be executed from left to right. E.g. a request `/thumb/rotate?size=500x300+10+20&degrees=90` translates to `rotate(thumb(<image>, size=500x300+10+20), degrees=90)`.
 
 #### Thumb + Rotate
 
