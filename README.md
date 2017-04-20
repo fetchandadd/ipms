@@ -14,7 +14,7 @@ Ipms provides the following basic commands.
 * Format set to PNG
 
 ```bash
-http localhost:8000/v1/imagemagick/format format==PNG < source.jpg > target.png
+http localhost:8000/v1/imagemagick/format format==png < source.jpg > target.png
 ```
 
 #### Quality
