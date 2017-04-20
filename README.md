@@ -11,10 +11,10 @@ Ipms provides the following basic commands.
 
 #### Format
 
-* Format set to JPG
+* Format set to PNG
 
 ```bash
-http localhost:8000/v1/imagemagick/format format==JPG < source.jpg > target.jpg
+http localhost:8000/v1/imagemagick/format format==PNG < source.jpg > target.png
 ```
 
 #### Quality
