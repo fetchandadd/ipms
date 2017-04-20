@@ -13,4 +13,3 @@ RUN /usr/local/openresty/luajit/bin/luarocks install magick
 # Copy configs and scripts
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
 COPY v1 /usr/local/openresty/nginx/v1
-
