@@ -1,0 +1,10 @@
+version: '2'
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - "TZ=Europe/Berlin"
+    ports:
+      - "8000:80"
