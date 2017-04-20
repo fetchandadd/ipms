@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install --no-install-recommends --no-install-sugge
 
 # Install dependencies on lua level
 RUN /usr/local/openresty/luajit/bin/luarocks install magick
+RUN /usr/local/openresty/luajit/bin/luarocks install split
 
 # Copy configs and scripts
 COPY nginx.conf /usr/local/openresty/nginx/conf/nginx.conf
