@@ -7,7 +7,9 @@ For the following examples [HTTPie](https://httpie.org/) is used to manage HTTP 
 
 ### Basic commands
 
-Ipms provides the following basic commands.
+Ipms provides the following basic commands. A command consist of a path fragment (e.g. `rotate`) and a GET parameter (e.g. `degrees`). The path fragment triggers the execution of the specific command and the GET parameter delivers the value. 
+
+A request `/rotate?degrees=90` can be seen as a function call `rotate(<image>, degrees=90)`.
 
 #### Format
 
@@ -43,7 +45,7 @@ http localhost:8000/v1/imagemagick/thumb size==500x300+10+20 < source.jpg > targ
 
 ### Combine multiple commands
 
-Commands will be executed from left to right. E.g. a request with the path `/thumb/rotate` translates to `rotate(thumb(<image>))`.
+Commands will be executed from left to right. E.g. a request `/thumb/rotate?size==500x300+10+20&degrees=90` translates to `rotate(thumb(<image>, size=500x300+10+20), degrees=90)`.
 
 #### Thumb + Rotate
 
