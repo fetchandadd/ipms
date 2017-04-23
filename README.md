@@ -1,7 +1,7 @@
 # ipms
 Image processing microservice
 
-## Examples
+## API
 
 For the following examples [HTTPie](https://httpie.org/) is used to manage HTTP connections.
 
