@@ -46,8 +46,10 @@ function main()
         local sequencePath = ngx.var.sequence
         local sequence = split_each(sequencePath, '/')
 
+
         -- call commands in sequence
         for command in sequence do
+            -- Todo: check if command is a exposed function
             img = _G[command](img)
         end
 
@@ -60,10 +62,16 @@ local status, values = pcall(main)
 
 -- Error handling
 if not status then
+    local cjson = require "cjson"
     -- value holds the error
     local error = values
+    local body = cjson.encode({
+        status = "500 Internal Server Error",
+        message = error
+    })
+    ngx.header["Content-Type"] = "application/json"
     ngx.status = 500
-    ngx.say(error)
+    ngx.say(body)
 else
     -- values holds the image
     local img = values
