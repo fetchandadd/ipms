@@ -46,11 +46,19 @@ function main()
         local sequencePath = ngx.var.sequence
         local sequence = split_each(sequencePath, '/')
 
+        local enabledFunctions = {
+            ["blur"] = true,
+            ["format"] = true,
+            ["quality"] = true,
+            ["rotate"] = true,
+            ["thumb"] = true
+        }
 
         -- call commands in sequence
         for command in sequence do
-            -- Todo: check if command is a exposed function
-            img = _G[command](img)
+            if enabledFunctions[command] then
+                img = _G[command](img)
+            end
         end
 
         return img
