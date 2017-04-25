@@ -58,6 +58,7 @@ function main()
 
         -- call commands in sequence
         for command in sequence do
+            -- check if command is an enabled funtion and was not already executed
             if enabledFunctions[command] and trace[command] == nil then
                 trace[command] = true
                 img = _G[command](img)
