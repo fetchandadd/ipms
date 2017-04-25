@@ -54,9 +54,12 @@ function main()
             ["thumb"] = true
         }
 
+        local trace = {}
+
         -- call commands in sequence
         for command in sequence do
-            if enabledFunctions[command] then
+            if enabledFunctions[command] and trace[command] == nil then
+                trace[command] = true
                 img = _G[command](img)
             end
         end
